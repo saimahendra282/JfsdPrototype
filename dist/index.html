@@ -1,0 +1,207 @@
+<style>
+    * {
+      box-sizing: border-box; /* Ensures padding is included in the total width/height */
+      margin: 0;
+      padding: 0;
+    }
+  
+    body {
+      margin: 0;
+      overflow-x: hidden; /* Prevents horizontal scrolling */
+    }
+  
+    .landing-section {
+      background-color: #fff;
+      padding: 20px 20px; /* Reduced padding to fit better in the viewport */
+      overflow: hidden;
+    }
+  
+    .landing-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 100%; /* Prevents content from exceeding the viewport */
+    }
+  
+    .left-column,
+    .right-column {
+      flex: 1;
+      min-width: 300px; /* Ensures elements don’t shrink too much */
+      max-width: 100%; /* Prevents overflow */
+    }
+  
+    .main-image {
+      object-fit: contain;
+      width: 100%; /* Ensures the image doesn’t exceed the container width */
+      max-width: 400px;
+      aspect-ratio: 1.1;
+    }
+  
+    .cta-button {
+  position: absolute; /* Make sure it's positioned absolutely if needed */
+  top: 490px; /* Adjust this value to move the button lower */
+  left: 150px; /* You can adjust the left positioning as well */
+  border-radius: 40px;
+  background-color: #83dcd7;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 250px;
+  padding: 15px 30px;
+  border: 1px solid #ffffff;
+  font: 700 20px Inter, sans-serif;
+  color: #000;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+  
+    .image-wrapper {
+      position: relative; /* Enables absolute positioning for the Lottie player */
+      display: inline-block;
+      /* padding-top: 20px; */
+    }
+
+    .circular-image {
+      width: 300px; /* Adjust size as needed */
+      height: 300px; /* Ensures the image is square */
+      border-radius: 50%; /* Makes the image circular */
+      object-fit: cover; /* Ensures the image fits within the circular frame */
+      position: relative; /* For z-index stacking */
+      z-index: 1; /* Ensures the image is above the Lottie player */
+      top: 110px; /* Move down from the top */
+      left: 110px; /* Move right from the left */
+    }
+  
+    .right-content {
+      background-color: #83dcd7;
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      font-family: Inter, sans-serif;
+      font-weight: 700;
+      padding: 80px 20px; /* Reduced padding to fit the screen */
+      max-width: 100%; /* Prevents overflow */
+    }
+  
+    .welcome-title {
+      color: #000;
+      font-size: 36px;
+      margin-right: 15px;
+    }
+  
+    .welcome-description {
+      color: #111;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  
+    .secondary-image {
+      object-fit: contain;
+      width: 100%; /* Adjust to fill container */
+      max-width: 400px;
+      align-self: flex-end;
+      margin-top: -30px;
+    }
+  
+    .highlight {
+      color: #cf601b;
+    }
+  
+    .student-highlight {
+      color: #680c80;
+    }
+  
+    .teacher-highlight {
+      color: #6f1b7c;
+    }
+  
+    .admin-highlight {
+      color: #771f9f;
+    }
+  
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  
+    @media (max-width: 991px) {
+      .landing-section {
+        padding: 20px; /* Adjusted padding for smaller screens */
+      }
+  
+      .landing-content {
+        flex-direction: column; /* Stacks content vertically */
+        align-items: stretch;
+      }
+  
+      .image-wrapper {
+        margin-top: 20px;
+      }
+  
+      .cta-button {
+        margin-top: 20px;
+        padding: 15px 20px;
+      }
+  
+      .right-content {
+        padding: 50px 20px;
+      }
+  
+      .welcome-title {
+        margin-right: 10px;
+      }
+    }
+</style>
+
+<section class="landing-section">
+  <div class="landing-content">
+    <div class="left-column">
+      <div class="image-wrapper">
+        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+        <dotlottie-player 
+          src="https://lottie.host/12595a0e-71ef-49ef-9422-029ed2be8b57/BSVY4niMq7.lottie" 
+          background="transparent" 
+          speed="1" 
+          style="width: 620px; height:620px; position: absolute; top: -55px; right: -262px; z-index: 0;" 
+          direction="1" 
+          playMode="normal" 
+          loop 
+          autoplay>
+        </dotlottie-player>
+        
+        <img src="certi.png" alt="Certificate image" class="main-image circular-image" loading="lazy">
+        <button class="cta-button" onclick="location.href='login.html'">Get Started</button>
+    </div>
+    </div>
+    
+    <div class="right-column">
+      <div class="right-content">
+        <h1 class="welcome-title">
+          <span style="font-size: 48px;">W</span>elcome To <span class="highlight">SkillCert</span>!!
+        </h1>
+        <p class="welcome-description">
+          Welcome to <span class="highlight">SkillCert</span>, a dynamic platform that caters to the needs of students, teachers, and administrators.
+          <span class="student-highlight">Students</span> can easily track their progress, access learning resources, and view grades.
+          <span class="teacher-highlight">Teachers</span> are able to monitor student performance, manage course content, and handle grading efficiently.
+          <span class="admin-highlight">Administrators</span> have full control over the platform, managing users and overseeing all activities to ensure smooth operations.
+          <span class="highlight">SkillCert</span> is designed to enhance the learning experience and streamline educational management for all users!
+        </p>
+        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+        <dotlottie-player src="https://lottie.host/f6b15bc2-879a-4a4f-9fa9-888a4e091ded/vC2p5sc1Jq.json" 
+        background="transparent" speed="1" style="width: 300px; height: 320px" direction="1"
+        style="position: absolute; top: -255px; right: -262px;"
+        playMode="normal" loop autoplay></dotlottie-player>
+        <!-- <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/07a730623b608aae993b17a821fe4fa0669bb597d1e0931e80ab754439fe1d10?placeholderIfAbsent=true&apiKey=8dc9aac3eec1428caab939ab237cc3e7" -->
+          <!-- alt="Educational resources illustration" class="secondary-image" loading="lazy"> -->
+      </div>
+    </div>
+  </div>
+</section>

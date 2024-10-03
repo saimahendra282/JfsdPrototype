@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Certificates</title>
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .certificates-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .certificate-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 250px;
+      text-align: center;
+    }
+
+    .certificate-image {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .student-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .expiry-date {
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+<h1 style="text-align: center; margin-bottom: 20px;">Mapped Students' Certificates</h1>
+<div class="certificates-container" id="certificates-container">
+  <!-- Example Certificate Card -->
+  <div class="certificate-card">
+    <img src="https://via.placeholder.com/250" alt="Certificate" class="certificate-image">
+    <div class="student-name">John Doe</div>
+    <div class="expiry-date">Expiry Date: 2025-06-30</div>
+  </div>
+  
+  <div class="certificate-card">
+    <img src="https://via.placeholder.com/250" alt="Certificate" class="certificate-image">
+    <div class="student-name">Jane Smith</div>
+    <div class="expiry-date">Expiry Date: 2024-12-15</div>
+  </div>
+  
+  <!-- Add more certificate cards as needed -->
+</div>
+
+<script>
+  // Sample data for mapped students and their certificates
+  const certificates = [
+    {
+      name: "John Doe",
+      imageUrl: "https://via.placeholder.com/250",
+      expiryDate: "2025-06-30"
+    },
+    {
+      name: "Jane Smith",
+      imageUrl: "https://via.placeholder.com/250",
+      expiryDate: "2024-12-15"
+    },
+    {
+      name: "Michael Johnson",
+      imageUrl: "https://via.placeholder.com/250",
+      expiryDate: "2026-01-20"
+    },
+    {
+      name: "Emily Davis",
+      imageUrl: "https://via.placeholder.com/250",
+      expiryDate: "2024-11-10"
+    }
+  ];
+
+  // Function to render certificates
+  function renderCertificates() {
+    const container = document.getElementById('certificates-container');
+    container.innerHTML = ''; // Clear previous content
+
+    certificates.forEach(cert => {
+      const card = document.createElement('div');
+      card.className = 'certificate-card';
+
+      card.innerHTML = `
+        <img src="${cert.imageUrl}" alt="Certificate" class="certificate-image">
+        <div class="student-name">${cert.name}</div>
+        <div class="expiry-date">Expiry Date: ${cert.expiryDate}</div>
+      `;
+
+      container.appendChild(card);
+    });
+  }
+
+  // Call the function to render the certificates on page load
+  renderCertificates();
+</script>
+
+</body>
+</html>

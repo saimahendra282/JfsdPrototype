@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Certificates</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .certificate-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .certificate-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 280px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .certificate-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .certificate-details {
+      padding: 15px;
+    }
+
+    .certificate-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .expiry-date {
+      color: #888;
+      font-size: 14px;
+    }
+
+    /* Responsive layout */
+    @media (max-width: 768px) {
+      .certificate-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Certificates</h1>
+
+  <div class="certificate-container">
+    <!-- Certificate 1 -->
+    <div class="certificate-card">
+      <img src="https://static.vecteezy.com/system/resources/previews/000/475/259/original/certificate-vector.jpg" alt="Certificate 1">
+      <div class="certificate-details">
+        <div class="certificate-name">Certificate of Completion</div>
+        <div class="expiry-date">Expiry Date: Dec 31, 2024</div>
+      </div>
+    </div>
+
+    <!-- Certificate 2 -->
+    <div class="certificate-card">
+      <img src="https://static.vecteezy.com/system/resources/previews/000/475/259/original/certificate-vector.jpg" alt="Certificate 2">
+      <div class="certificate-details">
+        <div class="certificate-name">Safety Training Certification</div>
+        <div class="expiry-date">Expiry Date: Jan 15, 2025</div>
+      </div>
+    </div>
+
+    <!-- Certificate 3 -->
+    <div class="certificate-card">
+      <img src="https://static.vecteezy.com/system/resources/previews/000/475/259/original/certificate-vector.jpg" alt="Certificate 3">
+      <div class="certificate-details">
+        <div class="certificate-name">Advanced Python Programming</div>
+        <div class="expiry-date">Expiry Date: Nov 10, 2024</div>
+      </div>
+    </div>
+
+    <!-- Add more certificates as needed -->
+  </div>
+
+</body>
+</html>

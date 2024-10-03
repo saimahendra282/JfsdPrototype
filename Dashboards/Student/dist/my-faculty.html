@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Faculty</title>
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+      padding: 20px;
+    }
+
+    .faculty-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px; /* Add space between cards */
+    }
+
+    .faculty-card {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      width: 250px; /* Set a fixed width for the cards */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-picture {
+      background-color: #d9d9d9;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px; /* Initial font size for initials */
+      color: #fff; /* Text color for initials */
+      font-weight: bold; /* Bold text for initials */
+      background-color: #83dcd7; /* Change this for each faculty member */
+    }
+
+    .faculty-name {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .faculty-role {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<h1>My Faculty</h1>
+
+<div class="faculty-container">
+  <div class="faculty-card">
+    <div class="profile-picture">JS</div> <!-- Initials for Dr. John Smith -->
+    <div class="faculty-name">Dr. John Smith</div>
+    <div class="faculty-role">Mathematics Department</div>
+  </div>
+  <div class="faculty-card">
+    <div class="profile-picture">JD</div> <!-- Initials for Prof. Jane Doe -->
+    <div class="faculty-name">Prof. Jane Doe</div>
+    <div class="faculty-role">Computer Science Department</div>
+  </div>
+  <div class="faculty-card">
+    <div class="profile-picture">AJ</div> <!-- Initials for Mr. Alex Johnson -->
+    <div class="faculty-name">Mr. Alex Johnson</div>
+    <div class="faculty-role">Physics Department</div>
+  </div>
+  <div class="faculty-card">
+    <div class="profile-picture">MK</div> <!-- Initials for Dr. Mary K. -->
+    <div class="faculty-name">Dr. Mary K.</div>
+    <div class="faculty-role">Chemistry Department</div>
+  </div>
+</div>
+
+</body>
+</html>

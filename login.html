@@ -1,0 +1,295 @@
+<style>
+    .login-page {
+      background-color: #fff;
+      padding: 34px 20px 0 20px; /* Adjusted padding */
+      overflow: hidden;
+    }
+    
+    .login-container {
+      display: flex;
+      gap: 20px;
+    }
+    
+    .image-column {
+      display: flex;
+      flex-direction: column;
+      width: 50%; /* Adjusted width */
+    }
+    
+    .image-wrapper {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      padding-bottom: 27px;
+      margin: 16px -20px 0 0; /* Adjusted margin */
+      /* position: relative; */
+    }
+    .main-image {
+      object-fit: contain;
+      width: 100%; /* Ensures the image doesn’t exceed the container width */
+      max-width: 400px;
+      aspect-ratio: 1.1;
+    }
+    .circular-image {
+      width: 300px; /* Adjust size as needed */
+      height: 300px; /* Ensures the image is square */
+      border-radius: 50%; /* Makes the image circular */
+      object-fit: cover; /* Ensures the image fits within the circular frame */
+      position: relative; /* For z-index stacking */
+      z-index: 1; /* Ensures the image is above the Lottie player */
+      top: 115px; /* Move down from the top */
+      left: 125px; /* Move right from the left */
+    }
+    
+    .create-account-text {
+    color: #000;
+    font: 400 16px bold, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    position: absolute; /* Set the element to absolute positioning */
+    bottom: 130; /* Move to the bottom */
+    left: 130; /* Align to the left */
+    margin: 0 0 10px 10px; /* Optional: Add a small margin from the edges */
+}
+    
+    .form-column {
+      display: flex;
+      flex-direction: column;
+      width: 50%; /* Adjusted width */
+      margin-left: 20px;
+    }
+    
+    .form-wrapper {
+      background-color: #83dcd7;
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      align-items: center;
+      font-family: Inter, sans-serif;
+      color: #000;
+      width: 800px; /* Set a specific width */
+      height: 600px; /* Set a specific height */
+      padding: 40px 20px; /* Adjusted padding */
+    }
+    
+    .form-content {
+      display: flex;
+      margin-left: 0; /* Adjusted margin */
+      width: 100%; /* Adjusted width */
+      max-width: 100%;
+      flex-direction: column;
+    }
+    
+    .login-title {
+      font-size: 30px; /* Adjusted font size */
+      font-weight: 700;
+      align-self: center;
+    }
+    
+    .login-form {
+      border-radius: 99px;
+      background-color: rgba(209, 192, 192, 0.36);
+      display: flex;
+      margin-top: 40px; /* Adjusted margin */
+      width: 500px; /* Set a specific width */
+      height: 400px; /* Set a specific height */
+      flex-direction: column;
+      font-size: 20px;
+      font-weight: 400;
+      padding: 40px 20px; /* Adjusted padding */
+      align-items: center; /* Center items in the form */
+
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column; /* Stack label and input vertically */
+      margin: 10px 0; /* Add spacing between groups */
+    }
+    
+    .form-label {
+      margin-bottom: 5px; /* Space between label and input */
+      font-weight: 600; /* Make label text slightly bolder */
+    }
+    
+    .form-input {
+      background-color: rgba(204, 204, 204, 0.96);
+      width: 100%; /* Full width */
+      height: 40px; /* Increased height for better usability */
+      border: none;
+      padding: 5px 10px; /* Padding for the input */
+      border-radius: 5px; /* Slightly rounded corners */
+      font-size: 16px; /* Font size for input text */
+    }
+    
+    .password-group {
+      display: flex;
+      margin-top: 20px; /* Adjusted margin */
+      gap: 10px; /* Adjusted gap */
+    }
+    
+    .password-label {
+      align-self: flex-start;
+      flex-grow: 1;
+      font-weight: 600; /* Make label text slightly bolder */
+
+    }
+    
+    .password-input {
+      background-color: rgba(204, 204, 204, 0.96);
+      width: 100%; /* Full width */
+      height: 40px; /* Increased height for better usability */
+      border: none;
+      padding: 5px 10px; /* Padding for the input */
+      border-radius: 5px; /* Slightly rounded corners */
+      font-size: 16px; /* Font size for input text */
+    }
+    
+    .login-button {
+    border-radius: 40px;
+    background-color: #83dcd7;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 20px; /* Adjusted margin-top to move the button up */
+    width: 261px;
+    max-width: 100%;
+    font-size: 29px;
+    font-weight: 700;
+    padding: 15px 28px 24px;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+    margin: 80px auto; /* Center the button */
+
+}
+
+    
+    .accent-color {
+      color: #cf601b;
+    }
+    
+    @media (max-width: 991px) {
+      .login-page {
+        padding-left: 20px;
+      }
+    
+      .login-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    
+      .image-column,
+      .form-column {
+        width: 100%;
+      }
+    
+      .image-wrapper {
+        max-width: 100%;
+      }
+    
+      .login-image {
+        max-width: 100%;
+        margin-top: 5px;
+      }
+    
+      .create-account-text {
+        margin: 20px 0 0 10px; /* Adjusted margin */
+      }
+    
+      .form-wrapper {
+        max-width: 100%;
+        padding: 40px 20px 0; /* Adjusted padding */
+      }
+    
+      .login-form {
+        margin-top: 40px;
+        padding: 40px 20px 0; /* Adjusted padding */
+      }
+    
+      .form-group,
+      .password-group {
+        margin: 20px 10px 0 0; /* Adjusted margin */
+      }
+    
+      .login-button {
+        margin: 20px 10px 0 0; /* Adjusted margin */
+        padding: 15px 20px; /* Adjusted padding */
+      }
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+</style>
+
+<section class="login-page">
+  <div class="login-container">
+      <div class="image-column">
+          <div class="image-wrapper">
+              <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+              <dotlottie-player 
+                src="https://lottie.host/12595a0e-71ef-49ef-9422-029ed2be8b57/BSVY4niMq7.lottie" 
+                background="transparent" 
+                speed="1" 
+                style="width: 620px; height:620px; position: absolute; bottom: 97px; left: 0; z-index: 0;" 
+                direction="1" 
+                playMode="normal" 
+                loop 
+                autoplay>
+              </dotlottie-player>
+              
+              <img src="certi.png" alt="Certificate image" class="main-image circular-image" loading="lazy">               
+              <p class="create-account-text">
+                  <a href="register.html" style="text-decoration: none; color: inherit; font-weight: 600;">Create your account here</a>
+              </p>
+          </div>
+      </div>
+      <div class="form-column">
+          <div class="form-wrapper">
+              <div class="form-content">
+                  <h1 class="login-title"><span class="accent-color">Login Here</span> !!</h1>
+
+                  <form class="login-form" onsubmit="loginUser(event)">
+                      <div class="form-group">
+                          <label for="name-input" class="form-label">Name:</label>
+                          <input type="text" id="name-input" class="form-input" aria-label="Enter your name" required />
+                          <br><br>
+                          <label for="password-input" class="password-label">Password:</label>
+                          <input type="password" id="password-input" class="password-input" aria-label="Enter your password" required />
+                      </div>
+                      <button type="submit" class="login-button">Login</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<script>
+  function loginUser(event) {
+      event.preventDefault(); // Prevent form submission
+
+      // Get the values entered by the user
+      const username = document.getElementById("name-input").value;
+      const password = document.getElementById("password-input").value;
+
+      // Check the login credentials
+      if (username === "admin" && password === "admin") {
+          window.location.href = "./Dashboards/AdminDashboard.html"; // Redirect to admin dashboard
+      } else if (username === "faculty" && password === "faculty") {
+          window.location.href = "./Dashboards/EmployeeDashboard.html"; // Redirect to employee dashboard
+      } else if (username === "student" && password === "student") {
+          window.location.href = "./Dashboards/StudentDashboard.html"; // Redirect to student dashboard
+      } else {
+          alert("Invalid username or password. Please try again.");
+      }
+  }
+</script>

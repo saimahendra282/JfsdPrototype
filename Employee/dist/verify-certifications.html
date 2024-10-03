@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify Certifications</title>
+  <style>
+    .certification-card {
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: 15px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+
+    .certification-card:hover {
+      transform: scale(1.05);
+    }
+
+    .certification-info {
+      margin-bottom: 10px;
+    }
+
+    .student-name {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .certification-name {
+      font-size: 16px;
+      color: #333;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .verify-button, .reject-button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.2s;
+    }
+
+    .verify-button {
+      background-color: #4caf50; /* Green */
+      color: white;
+    }
+
+    .verify-button:hover {
+      background-color: #45a049;
+    }
+
+    .reject-button {
+      background-color: #f44336; /* Red */
+      color: white;
+    }
+
+    .reject-button:hover {
+      background-color: #e53935;
+    }
+
+    .certifications-container {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .no-certifications {
+      font-size: 18px;
+      color: #777;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="certifications-container">
+  <h1>Verify Certifications</h1>
+
+  <div id="certifications-list">
+    <!-- Example Certification Cards -->
+    <div class="certification-card">
+      <div class="certification-info">
+        <div class="student-name">John Doe</div>
+        <div class="certification-name">Certificate of Excellence</div>
+      </div>
+      <div class="buttons">
+        <button class="verify-button" onclick="verifyCertification('John Doe')">Verify</button>
+        <button class="reject-button" onclick="rejectCertification('John Doe')">Reject</button>
+      </div>
+    </div>
+    <div class="certification-card">
+      <div class="certification-info">
+        <div class="student-name">Jane Smith</div>
+        <div class="certification-name">Certificate of Achievement</div>
+      </div>
+      <div class="buttons">
+        <button class="verify-button" onclick="verifyCertification('Jane Smith')">Verify</button>
+        <button class="reject-button" onclick="rejectCertification('Jane Smith')">Reject</button>
+      </div>
+    </div>
+    <div class="certification-card">
+      <div class="certification-info">
+        <div class="student-name">Alex Johnson</div>
+        <div class="certification-name">Certificate of Participation</div>
+      </div>
+      <div class="buttons">
+        <button class="verify-button" onclick="verifyCertification('Alex Johnson')">Verify</button>
+        <button class="reject-button" onclick="rejectCertification('Alex Johnson')">Reject</button>
+      </div>
+    </div>
+    <!-- Add more certification cards as needed -->
+  </div>
+
+  <div class="no-certifications" style="display: none;">No certifications to verify.</div>
+</div>
+
+<script>
+  function verifyCertification(studentName) {
+    alert(`Certification for ${studentName} has been verified!`);
+  }
+
+  function rejectCertification(studentName) {
+    alert(`Certification for ${studentName} has been rejected.`);
+  }
+</script>
+
+</body>
+</html>

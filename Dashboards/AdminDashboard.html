@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Your existing CSS styles */
+    .admin-dashboard {
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    .dashboard-container {
+      display: flex;
+      gap: 20px;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      width: 18%;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .sidebar-content {
+      background-color: #83dcd7;
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      align-items: center;
+      font-family: Inter, sans-serif;
+      color: #000;
+      width: 100%;
+      padding: 37px 10px 9px;
+    }
+
+    .profile-picture {
+      background-color: #d9d9d9;
+      border-radius: 50%;
+      width: 143px;
+      height: 143px;
+    }
+
+    .admin-name {
+      font-size: 26px;
+      margin-top: 16px;
+    }
+
+    .nav-menu {
+      border-radius: 13px;
+      background-color: rgba(255, 255, 255, 0.46);
+      align-self: stretch;
+      display: flex;
+      margin-top: 27px;
+      flex-direction: column;
+      font-size: 15px;
+      padding: 21px 26px 115px;
+    }
+
+    .nav-item {
+      border-radius: 31px;
+      background-color: #d9d9d9;
+      padding: 10px 15px;
+      margin-bottom: 25px;
+      cursor: pointer;
+    }
+
+    .main-content {
+      width: 82%;
+      margin-left: 20px;
+    }
+
+    .welcome-message {
+      color: #000;
+      margin-top: 54px;
+      font: 700 40px Inter, sans-serif;
+    }
+
+    .highlight {
+      color: #cf601b;
+    }
+
+    @media (max-width: 991px) {
+      .dashboard-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .sidebar,
+      .main-content {
+        width: 100%;
+      }
+
+      .sidebar-content {
+        margin-top: 40px;
+      }
+
+      .nav-menu {
+        padding: 21px 20px 100px;
+      }
+
+      .welcome-message {
+        max-width: 100%;
+        margin-top: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section class="admin-dashboard">
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <div class="profile-picture" aria-hidden="true"></div>
+        <h2 class="admin-name">Name</h2>
+        <nav class="nav-menu">
+          <div class="nav-item" data-page="./Admin/dashboard.html">Dashboard</div>
+          <div class="nav-item" data-page="./Admin/manage-employees.html">Manage Employees</div>
+          <div class="nav-item" data-page="./Admin/manage-student.html">Manage Student</div>
+          <div class="nav-item" data-page="./Admin/map-faculty.html">Map Faculty</div> <!-- Added Map Faculty Nav Item -->
+
+          <div class="nav-item" data-page="./Admin/view-certificates.html">View Certificates</div>
+          <div class="nav-item" data-page="./Admin/manage-certificates.html">Manage Certificates</div>
+          <div class="nav-item" data-page="./Admin/about-devs.html">About Devs</div>
+          <div class="nav-item" onclick="handleLogout()">Logout</div>
+        </nav>
+      </div>
+    </aside>
+    <main class="main-content" id="main-content">
+      <h1 class="welcome-message">Welcome Back <span class="highlight">Admin</span> Sir</h1>
+    </main>
+  </div>
+</section>
+
+<script>
+  const navItems = document.querySelectorAll('.nav-item');
+  const mainContent = document.getElementById('main-content');
+
+  // Function to fetch and load external HTML into main content
+  function loadPage(page) {
+    fetch(page)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Failed to load page: ${page}`);
+        }
+        return response.text();
+      })
+      .then(data => {
+        mainContent.innerHTML = data;
+      })
+      .catch(error => {
+        console.error('Error loading page:', error);
+        mainContent.innerHTML = '<h1>Content not available</h1>';
+      });
+  }
+// Function to handle logout
+function handleLogout() {
+    // Redirect to login.html
+    window.location.href = '../login.html';
+  }
+
+  // Add event listeners to nav items
+  navItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const page = this.getAttribute('data-page');
+      loadPage(page);
+    });
+  });
+</script>
+
+</body>
+</html>

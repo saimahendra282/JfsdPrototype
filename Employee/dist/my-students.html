@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Students</title>
+  <style>
+    .student-card {
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: 15px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.2s;
+    }
+
+    .student-card:hover {
+      transform: scale(1.05);
+    }
+
+    .profile-picture {
+      background-color: #d9d9d9;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin-right: 20px;
+    }
+
+    .student-info {
+      flex-grow: 1;
+    }
+
+    .student-name {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .student-details {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .students-container {
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .no-students {
+      font-size: 18px;
+      color: #777;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<div class="students-container">
+  <h1>My Students</h1>
+
+  <div id="students-list">
+    <!-- Example Student Cards -->
+    <div class="student-card">
+      <div class="profile-picture" aria-hidden="true"></div>
+      <div class="student-info">
+        <div class="student-name">John Doe</div>
+        <div class="student-details">ID: 123456 </div>
+      </div>
+    </div>
+    <div class="student-card">
+      <div class="profile-picture" aria-hidden="true"></div>
+      <div class="student-info">
+        <div class="student-name">Jane Smith</div>
+        <div class="student-details">ID: 654321 </div>
+      </div>
+    </div>
+    <div class="student-card">
+      <div class="profile-picture" aria-hidden="true"></div>
+      <div class="student-info">
+        <div class="student-name">Alex Johnson</div>
+        <div class="student-details">ID: 987654 </div>
+      </div>
+    </div>
+    <!-- Add more student cards as needed -->
+  </div>
+
+  <div class="no-students" style="display: none;">No students found.</div>
+</div>
+
+</body>
+</html>

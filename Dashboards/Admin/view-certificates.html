@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd; /* Add border between columns */
+        }
+        th {
+            background-color: #f2f2f2;
+            border-bottom: 2px solid #ddd;
+        }
+        .badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            color: white;
+            font-size: 12px;
+        }
+        .active {
+            background-color: #28a745;
+        }
+        .inactive {
+            background-color: #dc3545;
+        }
+        .cert-icon {
+            width: 30px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .cert-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .cert-name {
+            font-weight: bold;
+        }
+        .cert-code {
+            font-size: 14px;
+            color: #666;
+            margin-top: auto; /* Align certification code to the bottom */
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Certificates</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Certificates</th>
+                <th>Status</th>
+                <th>Organization</th>
+                <th>Email Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="cert-details">
+                        <img class="cert-icon" src="https://logos-world.net/wp-content/uploads/2020/09/Oracle-Symbol.png" alt="Oracle Logo">
+                        <div class="cert-name">Oracle Java Professional</div>
+                        <div class="cert-code">@Java SE</div>
+                    </div>
+                </td>
+                <td><span class="badge active">Active</span></td>
+                <td>Oracle</td>
+                <td>oracle123@gmail.com</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cert-details">
+                        <img class="cert-icon" src="https://www.newsobserver.com/latest-news/8pbdnj/picture229849659/alternates/FREE_1140/Logo-RedHat-B-Color-CMYK.jpg" alt="Red Hat Logo">
+                        <div class="cert-name">Red Hat Enterprise Application Developer</div>
+                        <div class="cert-code">@EX183</div>
+                    </div>
+                </td>
+                <td><span class="badge active">Active</span></td>
+                <td>Red Hat</td>
+                <td>redhatex183@gmail.com</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cert-details">
+                        <img class="cert-icon" src="https://news-cdn.softpedia.com/images/news2/Microsoft-Redesigns-Its-Logo-for-the-First-Time-in-25-Years-Here-It-Is-3.png" alt="Microsoft Logo">
+                        <div class="cert-name">Microsoft Azure Fundamentals</div>
+                        <div class="cert-code">@AZ-900</div>
+                    </div>
+                </td>
+                <td><span class="badge inactive">Inactive</span></td>
+                <td>Microsoft</td>
+                <td>mazure123@gmail.com</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cert-details">
+                        <img class="cert-icon" src="https://tse3.mm.bing.net/th?id=OIP.b_al7C5p26tbZG4sy-CWqwHaFj&pid=Api&P=0&h=180" alt="AWS Logo">
+                        <div class="cert-name">Amazon Cloud Practitioner</div>
+                        <div class="cert-code">@AWS CP</div>
+                    </div>
+                </td>
+                <td><span class="badge active">Active</span></td>
+                <td>Amazon</td>
+                <td>awscp123@gmail.com</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Developers</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 62.5%;
+        }
+
+        body {
+            --background-color: hsl(180, 20%, 90%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            padding: 2rem;
+            color: hsla(0, 0%, 0%, .6);
+            background: var(--background-color);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            padding-top: 2rem;
+        }
+
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wrap {
+            margin: 2rem;
+            transform-style: preserve-3d;
+            transform: perspective(100rem);
+            cursor: pointer;
+        }
+
+        .container {
+            --rX: 0;
+            --rY: 0;
+            --bX: 50%;
+            --bY: 80%;
+            width: 30rem;
+            height: 36rem;
+            border: 1px solid var(--background-color);
+            border-radius: 1.6rem;
+            padding: 2rem; /* Adjusted padding */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Changed to flex-start */
+            position: relative;
+            background: linear-gradient(hsla(0, 0%, 100%, .1), hsla(0, 0%, 100%, .1));
+            box-shadow: 0 0 3rem .5rem hsla(0, 0%, 0%, .2);
+            transition: transform .6s 1s;
+        }
+
+        .profile-pic {
+            width: 10rem;
+            height: 10rem;
+            border-radius: 50%;
+            margin-bottom: 1rem; /* Adjusted margin */
+            border: 2px solid #fff;
+        }
+
+        .container p {
+            color: hsla(0, 0%, 0%, .8);
+            font-size: 2rem; /* Adjusted font size */
+            margin: 0.5rem 0; /* Added margin for spacing */
+        }
+
+        .contribution {
+            font-size: 1.6rem; /* Adjusted font size for contribution */
+            color: hsla(0, 0%, 0%, .6);
+            text-align: center;
+            margin-top: 0.5rem; /* Added margin for spacing */
+        }
+
+        .container--active {
+            transition: none;
+        }
+
+        .abs-site-link {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: hsla(0, 0%, 0%, .6);
+            font-size: 1.6rem;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Meet the Developers</h1>
+
+    <section class="main">
+        <div class="wrap">
+            <div class="container">
+                <img class="profile-pic" src="https://i.ibb.co/3F59D8n/saibeach.png" alt="B Sai Mahendra">
+                <!-- https://i.ibb.co/3F59D8n/saibeach.png -->
+                <p>B Sai Mahendra</p>
+                <p class="contribution">2200030548</p>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="container">
+                <img class="profile-pic" src="https://media.licdn.com/dms/image/v2/D5603AQF6_LtsAwoQkw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1727894872986?e=1733356800&v=beta&t=ENqlJWIKVnnQISyuqWOjjvRULy6o_frqNAnrnIA39jc" alt="Vishal Readdy">
+                <p>Vishal Readdy</p>
+                <p class="contribution">2200032515</p>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="container">
+                <img class="profile-pic" src="https://media.licdn.com/dms/image/v2/D5603AQFct0KCnjUY5A/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1721127786633?e=1733356800&v=beta&t=KZJZWq_8ELfpABoB5v3OVK1XeK_SL6l4KfW2_S9uf5s" alt="Raghu Ram Reddy">
+                <p>Raghu Ram Reddy</p>
+                <p class="contribution">2200030704</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        class ParallaxTiltEffect {
+            constructor({element, tiltEffect}) {
+                this.element = element;
+                this.container = this.element.querySelector(".container");
+                this.size = [300, 360];
+                [this.w, this.h] = this.size;
+                this.tiltEffect = tiltEffect;
+                this.mouseOnComponent = false;
+
+                this.handleMouseMove = this.handleMouseMove.bind(this);
+                this.handleMouseEnter = this.handleMouseEnter.bind(this);
+                this.handleMouseLeave = this.handleMouseLeave.bind(this);
+                this.defaultStates = this.defaultStates.bind(this);
+                this.setProperty = this.setProperty.bind(this);
+                this.init = this.init.bind(this);
+
+                this.init();
+            }
+
+            handleMouseMove(event) {
+                const {offsetX, offsetY} = event;
+                let X, Y;
+
+                if (this.tiltEffect === "reverse") {
+                    X = ((offsetX - (this.w / 2)) / 3) / 3;
+                    Y = (-(offsetY - (this.h / 2)) / 3) / 3;
+                } else if (this.tiltEffect === "normal") {
+                    X = (-(offsetX - (this.w / 2)) / 3) / 3;
+                    Y = ((offsetY - (this.h / 2)) / 3) / 3;
+                }
+
+                this.setProperty('--rY', X.toFixed(2));
+                this.setProperty('--rX', Y.toFixed(2));
+                this.setProperty('--bY', (80 - (X / 4).toFixed(2)) + '%');
+                this.setProperty('--bX', (50 - (Y / 4).toFixed(2)) + '%');
+            }
+
+            handleMouseEnter() {
+                this.mouseOnComponent = true;
+                this.container.classList.add("container--active");
+            }
+
+            handleMouseLeave() {
+                this.mouseOnComponent = false;
+                this.defaultStates();
+            }
+
+            defaultStates() {
+                this.container.classList.remove("container--active");
+                this.setProperty('--rY', 0);
+                this.setProperty('--rX', 0);
+                this.setProperty('--bY', '80%');
+                this.setProperty('--bX', '50%');
+            }
+
+            setProperty(p, v) {
+                return this.container.style.setProperty(p, v);
+            }
+
+            init() {
+                this.element.addEventListener('mousemove', this.handleMouseMove);
+                this.element.addEventListener('mouseenter', this.handleMouseEnter);
+                this.element.addEventListener('mouseleave', this.handleMouseLeave);
+            }
+        }
+
+        const $ = e => document.querySelector(e);
+        const wraps = document.querySelectorAll('.wrap');
+
+        wraps.forEach((wrap) => {
+            new ParallaxTiltEffect({
+                element: wrap,
+                tiltEffect: 'normal'
+            });
+        });
+    </script>
+
+    <!-- <a href="https://abubakersaeed.netlify.app/designs/d10-parallax-tilt-effect-cards" class="abs-site-link" rel="nofollow noreferrer" target="_blank">abs/designs/d10-parallax-tilt-effect-cards</a> -->
+</body>
+</html>

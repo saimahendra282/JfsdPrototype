@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Employees</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+        .employee-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px;
+        }
+        .employee-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: calc(25% - 20px); /* Adjust width to have 4 cards in a row */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .profile-picture {
+            background-color: #d9d9d9;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #555;
+        }
+        .employee-name {
+            font-size: 20px;
+            margin: 5px 0;
+        }
+        .employee-email,
+        .employee-phone {
+            font-size: 14px;
+            color: #777;
+        }
+        .action-icons {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+        }
+        .action-icons span {
+            cursor: pointer;
+            color: black;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Manage Employees</h2>
+
+    <div class="employee-container">
+        <div class="employee-card">
+            <div class="profile-picture">A</div>
+            <div class="employee-name">Alice Johnson</div>
+            <div class="employee-email">alice.johnson@example.com</div>
+            <div class="employee-phone">+1234567890</div>
+            <div class="action-icons">
+                <span class="edit-icon" onclick="showEditForm()">✏️</span>
+                <span class="delete-icon" onclick="confirmDelete()">🗑️</span>
+            </div>
+        </div>
+        <div class="employee-card">
+            <div class="profile-picture">B</div>
+            <div class="employee-name">Bob Smith</div>
+            <div class="employee-email">bob.smith@example.com</div>
+            <div class="employee-phone">+0987654321</div>
+            <div class="action-icons">
+                <span class="edit-icon" onclick="showEditForm()">✏️</span>
+                <span class="delete-icon" onclick="confirmDelete()">🗑️</span>
+            </div>
+        </div>
+        <div class="employee-card">
+            <div class="profile-picture">C</div>
+            <div class="employee-name">Charlie Brown</div>
+            <div class="employee-email">charlie.brown@example.com</div>
+            <div class="employee-phone">+1122334455</div>
+            <div class="action-icons">
+                <span class="edit-icon" onclick="showEditForm()">✏️</span>
+                <span class="delete-icon" onclick="confirmDelete()">🗑️</span>
+            </div>
+        </div>
+        <div class="employee-card">
+            <div class="profile-picture">D</div>
+            <div class="employee-name">Dana White</div>
+            <div class="employee-email">dana.white@example.com</div>
+            <div class="employee-phone">+5566778899</div>
+            <div class="action-icons">
+                <span class="edit-icon" onclick="showEditForm()">✏️</span>
+                <span class="delete-icon" onclick="confirmDelete()">🗑️</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to confirm deletion
+        function confirmDelete() {
+            alert('Deleting employee');
+        }
+
+        // Function to show the edit form (you can create a form similar to the previous one)
+        function showEditForm() {
+            alert('Show edit form');
+        }
+    </script>
+
+</body>
+</html>
