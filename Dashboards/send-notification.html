@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Notification</title>
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"], textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+    }
+
+    .send-button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background-color: #4caf50;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Send Notification</h2>
+  <form id="notification-form">
+    <label for="recipients">Select Recipients:</label>
+    <select id="recipients">
+      <option value="all">All Students</option>
+      <option value="specific">Specific Student</option>
+    </select>
+
+    <div id="specific-student" style="display: none;">
+      <label for="student-id">Enter Student ID:</label>
+      <input type="text" id="student-id" placeholder="Enter student ID">
+    </div>
+
+    <label for="message">Notification Message:</label>
+    <textarea id="message" rows="5" placeholder="Enter your notification message"></textarea>
+
+    <button type="button" class="send-button" onclick="sendNotification()">Send Notification</button>
+  </form>
+</div>
+
+<script>
+  const recipientsDropdown = document.getElementById('recipients');
+  const specificStudentInput = document.getElementById('specific-student');
+
+  recipientsDropdown.addEventListener('change', function() {
+    if (this.value === 'specific') {
+      specificStudentInput.style.display = 'block';
+    } else {
+      specificStudentInput.style.display = 'none';
+    }
+  });
+
+  function sendNotification() {
+    const recipients = recipientsDropdown.value;
+    const studentId = document.getElementById('student-id').value;
+    const message = document.getElementById('message').value;
+
+    if (!message.trim()) {
+      alert('Please enter a message');
+      return;
+    }
+
+    if (recipients === 'specific' && !studentId.trim()) {
+      alert('Please enter a student ID');
+      return;
+    }
+
+    alert(`Notification sent to ${recipients === 'all' ? 'all students' : `student ID: ${studentId}`}.`);
+    
+    // Simulate sending the notification to the backend
+    // Add backend code here to send the notification.
+  }
+</script>
+
+</body>
+</html>
